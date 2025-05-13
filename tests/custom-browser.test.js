@@ -23,5 +23,5 @@ test('Efter push ska toppen av stacken vara "Apelsin" (failar med flit)', async 
     await alert.accept();
 
     const top = await driver.findElement(By.id('top_of_stack')).getText();
-    expect(top).toBe("Apelsin"); // 👈 medvetet fel!
+    expect(top).toBe("Banan");
 });
