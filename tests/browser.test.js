@@ -34,3 +34,15 @@ describe('Clicking "Pusha till stacken"', () => {
         await alert.accept();
     });
 });
+
+test('Efter push ska toppen av stacken vara "Apelsin" (failar med flit)', async () => {
+    const pushButton = await driver.findElement(By.id('push'));
+    await pushButton.click();
+
+    const alert = await driver.switchTo().alert();
+    await alert.sendKeys("Banan");
+    await alert.accept();
+
+    const top = await driver.findElement(By.id('top_of_stack')).getText();
+    expect(top).toBe("Banan");
+});

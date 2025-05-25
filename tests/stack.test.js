@@ -17,3 +17,14 @@ test('peek on stack with two or more elements returns the top element', () => {
     expect(stack.peek()).toBeDefined();
     expect(stack.peek()).toBe(42);
 });
+
+beforeEach(() => {
+  while (stack.pop() !== undefined) {}
+});
+
+test('pop should return the correct element (failar först)', () => {
+    stack.push('apple');
+    stack.push('banana');
+    const popped = stack.pop();
+    expect(popped).toBe('banana'); 
+});
